@@ -49,7 +49,7 @@ export async function getAutoSearchResults(searchText: string, signal: any): Pro
     return Promise.reject(response.statusText);
   }
 
-  const suggestions = await response.json() as { phrase: string }[];
+  const suggestions = (await response.json()) as { phrase: string }[];
   const results: SearchResult[] = suggestions.map((suggestion) => ({
     id: nanoid(),
     query: suggestion.phrase,
