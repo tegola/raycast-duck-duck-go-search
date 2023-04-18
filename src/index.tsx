@@ -1,4 +1,4 @@
-import { ActionPanel, closeMainWindow, Action, Icon, List, open } from "@raycast/api";
+import { Action, ActionPanel, Icon, List, closeMainWindow, confirmAlert, open } from "@raycast/api";
 import { useSearch } from "./utils/useSearch";
 
 export default function Command() {
@@ -37,7 +37,7 @@ export default function Command() {
                         await deleteHistoryItem(item);
                       }}
                       icon={{ source: Icon.Trash }}
-                      shortcut={{ modifiers: ["cmd"], key: "d" }}
+                      shortcut={{ modifiers: ["ctrl"], key: "x" }}
                     />
                   )}
 
@@ -50,6 +50,7 @@ export default function Command() {
                       }
                     }}
                     icon={{ source: Icon.ExclamationMark }}
+                    shortcut={{ modifiers: ["ctrl", "shift"], key: "x" }}
                   />
                 </ActionPanel.Section>
               </ActionPanel>
