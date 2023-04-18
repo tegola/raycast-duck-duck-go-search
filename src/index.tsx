@@ -32,7 +32,7 @@ export default function Command() {
                 <ActionPanel.Section title="History">
                   {item.isHistory && (
                     <Action
-                      title="Remove From History"
+                      title="Remove from History"
                       onAction={async () => {
                         await deleteHistoryItem(item);
                       }}
@@ -43,8 +43,11 @@ export default function Command() {
 
                   <Action
                     title="Clear All History"
+                    style={Action.Style.Destructive}
                     onAction={async () => {
-                      await deleteAllHistory();
+                      if (await confirmAlert({ title: "Clear all Duck Duck Go search history?" })) {
+                        await deleteAllHistory();
+                      }
                     }}
                     icon={{ source: Icon.ExclamationMark }}
                   />
